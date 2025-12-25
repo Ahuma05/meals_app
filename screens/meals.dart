@@ -2,16 +2,24 @@ import 'package:flutter/material.dart';
 import 'package:meals_app/models/meal.dart';
 import 'package:meals_app/widgets/meal_item.dart';
 
+// ignore: must_be_immutable
 class MealsScreen extends StatelessWidget {
-  const MealsScreen({super.key, this.title, required this.meals});
+  MealsScreen({
+    super.key,
+    this.title,
+    required this.meals,
+    required this.toggleOnFavorite,
+  });
   final String? title;
   final List<Meal> meals;
+  void Function(Meal meal) toggleOnFavorite;
 
   @override
   Widget build(BuildContext context) {
     Widget content = ListView.builder(
       itemCount: meals.length,
-      itemBuilder: (context, index) => MealItem(meal: meals[index]),
+      itemBuilder: (context, index) =>
+          MealItem(meal: meals[index], onToggleFavorite: toggleOnFavorite),
     );
 
     if (meals.isEmpty) {
