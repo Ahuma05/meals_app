@@ -32,7 +32,7 @@ class _FilterScreenState extends State<FilterScreen> {
               ),
             ),
             subtitle: Text(
-              'Only show glutten meals',
+              'Only show glutten-free meals',
               style: Theme.of(context).textTheme.labelMedium!.copyWith(
                 color: Theme.of(context).colorScheme.onSurface,
               ),
